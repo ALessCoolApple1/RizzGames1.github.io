@@ -14,6 +14,7 @@
 
         /* Basic styling for the iframe container */
         .iframe-container {
+            position: relative;
             display: flex;
             justify-content: center; /* Center horizontally */
             align-items: center;     /* Center vertically */
@@ -23,9 +24,14 @@
 
         /* Basic styling for the iframe */
         iframe {
-            width: 80%;               /* Adjust width as needed */
-            height: 50vh;            /* Half viewport height */
-            border: none;            /* Remove border */
+            position: absolute;      /* Allows repositioning */
+            width: 80%;              /* Adjust width as needed */
+            height: 50vh;           /* Half viewport height */
+            border: none;           /* Remove border */
+            top: 50%;               /* Start at the vertical center */
+            left: 50%;              /* Start at the horizontal center */
+            transform: translate(-50%, -50%); /* Center the iframe */
+            transition: transform 0.1s ease; /* Smooth transition for movement */
         }
     </style>
 </head>
@@ -33,5 +39,31 @@
     <div class="iframe-container">
         <iframe src="https://psychic-space-memory-jv5j7jg66g4hjqvr-8080.app.github.dev/~/uv/hwtss9%2F%2Chwmoxn.diwhvb-il%2Fk74%2Fgrjvf-nag%2F" title="Website Frame"></iframe>
     </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const iframe = document.querySelector('iframe');
+            const step = 10; // Amount of pixels to move on each arrow press
+
+            let rect = iframe.getBoundingClientRect();
+            let top = rect.top;
+            let left = rect.left;
+
+            switch (event.key) {
+                case 'ArrowUp':
+                    iframe.style.transform = `translate(-50%, calc(-50% - ${step}px))`;
+                    break;
+                case 'ArrowDown':
+                    iframe.style.transform = `translate(-50%, calc(-50% + ${step}px))`;
+                    break;
+                case 'ArrowLeft':
+                    iframe.style.transform = `translate(calc(-50% - ${step}px), -50%)`;
+                    break;
+                case 'ArrowRight':
+                    iframe.style.transform = `translate(calc(-50% + ${step}px), -50%)`;
+                    break;
+            }
+        });
+    </script>
 </body>
 </html>
