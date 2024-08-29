@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Window</title>
     <style>
+        /* Reset default browser margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         /* Basic styling for the iframe container */
         .iframe-container {
             display: flex;
             justify-content: center; /* Center horizontally */
             align-items: center;     /* Center vertically */
             height: 100vh;           /* Full viewport height */
-            margin: 0;               /* Remove default margin */
-            padding: 0;              /* Remove default padding */
+            overflow: hidden;        /* Prevent scrollbar */
         }
 
         /* Basic styling for the iframe */
