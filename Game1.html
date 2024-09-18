@@ -31,6 +31,17 @@
     </style>
 </head>
 <body>
+          <script>
+         var password = "4500";
+         (function passcodeprotect() {
+            var passcode = prompt("Enter PassCode");
+            while (passcode !== password) {
+               alert("Incorrect PassCode");
+               return passcodeprotect();
+            }
+         }());
+         alert('Good I guess you are one of the few I gave accses to');
+      </script>
     <div class="iframe-container">
         <iframe id="Drive mad" src="https://htmlxm.github.io/h77/drive-mad/" title="Drive mad"></iframe>
     </div>
